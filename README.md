@@ -57,7 +57,7 @@ pip install -r requirements.txt
 
 Para executar o script, certifique-se de que seu ambiente virtual `(venv)` está ativo e rode o seguinte comando:
 
-```bash
+```
 python coletor_noticias.py
 ```
 
@@ -68,6 +68,6 @@ O terminal exibirá a lista de manchetes coletadas do portal G1.
   - Lista as manchetes principais do portal de notícias G1.
   - Utiliza a biblioteca `requests` para baixar o conteúdo da web.
   - Utiliza a biblioteca `BeautifulSoup` para analisar o documento HTML.
-  - [cite\_start]Demonstra um exemplo prático de Web Scraping[cite: 47].
+  - Demonstra um exemplo prático de Web Scraping.
   - Estruturado para fácil entendimento e modificação.
   - Inclui tratamento básico de exceções para lidar com falhas de conexão.
