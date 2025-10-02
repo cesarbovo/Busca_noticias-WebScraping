@@ -1,0 +1,25 @@
+import requests
+from bs4 import BeautifulSoup
+
+def coletar_manchetes_g1():
+    url = 'https://g1.globo.com/'
+    print(f"Iniciando a coleta de notícias de: {url}\n")
+    try:
+        response = requests.get(url, timeout=10)
+        response.raise_for_status()
+        soup = BeautifulSoup(response.text, 'html.parser')
+        elementos_noticia = soup.select('.feed-post-link')
+        if not elementos_noticia:
+            print("Nenhum título de notícia encontrado com o seletor fornecido.")
+            return
+        print("--- MANCHETES DO DIA ---")
+        for i, noticia in enumerate(elementos_noticia, start=1):
+            print(f"{i}. {noticia.text.strip()}")
+        print("\n--- FIM DAS MANCHETES ---")
+    except requests.exceptions.RequestException as e:
+        print(f"Ocorreu um problema ao tentar acessar a página: {e}")
+    except Exception as e:
+        print(f"Um erro inesperado ocorreu: {e}")
+
+if __name__ == "__main__":
+    coletar_manchetes_g1()
